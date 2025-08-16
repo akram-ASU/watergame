@@ -34,12 +34,6 @@ total_leftover = total_supplied - total_consumed
 excess_days = np.where(daily_supply > actual_consumption)[0]
 num_excess_days = len(excess_days)
 
-# Show metrics
-st.metric("Total Supplied", total_supplied)
-st.metric("Total Consumed", total_consumed)
-st.metric("Total Leftover", total_leftover)
-st.markdown(f"🟢 **Days when supply > consumption**: {num_excess_days} out of {num_days}")
-
 # Plotting
 st.subheader("📊 Daily Supply vs Consumption")
 fig, ax = plt.subplots(figsize=(10, 4))
@@ -54,3 +48,8 @@ ax.set_ylabel("Water Bottles")
 ax.legend()
 st.pyplot(fig)
 
+# Show metrics
+st.metric("Total Supplied", total_supplied)
+st.metric("Total Consumed", total_consumed)
+st.metric("Total Leftover", total_leftover)
+st.markdown(f"🟢 **Days when supply > consumption**: {num_excess_days} out of {num_days}")
